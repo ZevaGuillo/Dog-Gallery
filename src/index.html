@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../dist/output.css" rel="stylesheet">
+  <script src="./main.js" defer></script>
+</head>
+<body>
+  <h1>Dog App</h1>
+
+    <span id="error"></span>
+
+    <section id="randomDog">
+
+        <article>
+            <img alt="imagenes de perritos">
+            <button type="button" class="btn-favourites">Favoritos</button>    
+        </article>
+        <article>
+            <img width="150" alt="imagenes de perritos">
+            <button class="btn-favourites">Favoritos</button>    
+        </article>
+
+        <button id="btn-random">Random</button>
+    </section>
+    
+    <section class="uploadingDog">
+        <h2>Sube la foto de tu michi</h2>
+        <form id="uploadingForm">
+            <input type="file" id="file" name="file">
+            <button type="button">Subir foto de tu perro</button>
+        </form>
+    </section>
+
+    <section id="favouritesDogs">
+        <h2>Favoritos</h2>
+        <div id="favouriteDogList"></div>
+    </section>
+
+</body>
+</html>
