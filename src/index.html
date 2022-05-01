@@ -1,78 +1,100 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../dist/output.css" rel="stylesheet">
   <Title>DogGallery</Title>
 </head>
+
 <body class=" bg-neutral-100">
   <header class="pl-5 py-2 flex items-center bg-emerald-300 h-auto drop-shadow-lg">
     <h1 class="text-4xl	font-bold	text-gray-800 leading-normal">DogGallery</h1>
   </header>
-  
+
   <span id="error"></span>
 
   <nav class="flex justify-center ">
-    <div class="w-11/12 flex gap-x-8 items-center pt-12 border-0 border-b-2 border-teal-500">
-      <div class="text-lg text-teal-500 font-medium">All</div>
-      <div class="text-lg ">Favoritos</div>
-      <div class="text-lg ">Subir imagen</div>
+    <div
+      class="w-11/12 flex gap-x-8 items-center justify-center pt-12 border-0 border-b-2 border-teal-500 sm:justify-start lg:justify-start">
+      <div class="page-focused" id="page-all">All</div>
+      <div class="page-blurred" id="page-favourites">Favoritos</div>
+      <div class="page-blurred" id="page-upload">Subir imagen</div>
     </div>
   </nav>
 
+<!-- page random -->
+  <div class="container">
+    
+  </div>
+
+  <!-- filter -->
   <div class="flex justify-center">
-    <div class="w-11/12 my-3">
+    <div class="w-11/12 my-3 flex items-center ">
 
       <label class="flex items-center gap-4">
         <span class="text-gray-700 font-semibold">Tipo</span>
-        <select id="select-type-dog" class="bg-transparent block w-28 mt-0 px-1.5 border-0 border-b-2 border-gray-300 text-gray-500  focus:ring-0 focus:border-black">
+        <select id="select-type-dog"
+          class="bg-transparent block w-28 mt-0 px-1.5 border-0 border-b-2 border-gray-300 text-gray-500  focus:ring-0 focus:border-black">
           <option value="all">Todo</option>
           <option value="static">Est&aacute;tico</option>
           <option value="animated">Animado</option>
         </select>
-
-        <label class="ml-7 flex items-center gap-4">
-          <span class="text-gray-700 font-semibold">Raza</span>
-          <select id="select-type-dog" class="bg-transparent block w-28 mt-0 px-1.5 border-0 border-b-2 border-gray-300 text-gray-500 focus:ring-0 focus:border-black">
-            <option>Todo</option>
-          </select>
-
       </label>
+
+      <!-- <label class="ml-7 flex items-center gap-4">
+        <span class="text-gray-700 font-semibold">Raza</span>
+        <select id="select-type-dog" class="bg-transparent block w-28 mt-0 px-1.5 border-0 border-b-2 border-gray-300 text-gray-500 focus:ring-0 focus:border-black">
+          <option>Todo</option>
+        </select>
+      </label> -->
+
+      <div class="h-full px-4 flex items-center flex-nowrap gap-6 overflow-x-scroll scrollbar-none">
+        <span class="item-breeds">GUILLERMO</span>
+        
+      </div>
+
 
     </div>
   </div>
 
+  <!-- random gallery -->
   <div class="flex justify-center ">
     <section id="randomDog" class="w-11/12 gap-8 pt-2 container-dogs">
 
-        <!-- <article>
+      <!-- <article>
             <img alt="imagenes de perritos">
             <button type="button" class="btn-favourites">Favoritos</button>    
         </article> -->
-  
+
     </section>
   </div>
 
-    
-    
-    <section class="uploadingDog">
-        <h2>Sube la foto de tu michi</h2>
-        <form id="uploadingForm">
-            <input type="file" id="file" name="file">
-            <button type="button">Subir foto de tu perro</button>
-        </form>
-    </section>
 
-    <h2>Favoritos</h2>
-    <section id="favouritesDogs" class="flex justify-center">
-        
-        <div id="favouriteDogList" class="w-11/12 gap-8 pt-2 container-dogs">
-          
-        </div>
-        
-    </section>
+<!-- -------------subir imagen--------------- -->
 
-    <script type="module" src="./main.js"></script>
+  <section class="uploadingDog">
+    <h2>Sube la foto de tu michi</h2>
+    <form id="uploadingForm">
+      <input type="file" id="file" name="file">
+      <button type="button">Subir foto de tu perro</button>
+    </form>
+  </section>
+
+  
+<!-- ------------favoritos-------------- -->
+
+  <h2>Favoritos</h2>
+  <section id="favouritesDogs" class="flex justify-center">
+
+    <div id="favouriteDogList" class="w-11/12 gap-8 pt-2 container-dogs">
+
+    </div>
+
+  </section>
+
+  <script type="module" src="./main.js"></script>
 </body>
+
 </html>

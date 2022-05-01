@@ -7,6 +7,13 @@
         @apply w-full object-cover rounded-xl;
     }
 }
+body{
+    @apply scrollbar-none
+}
+
+.item-breeds{
+    @apply inline-block cursor-pointer bg-teal-500 rounded-lg text-emerald-900 transition ease-in-out delay-100 hover:bg-teal-600 hover:scale-105 px-2
+}
 
 .container-dogs{
     @apply w-11/12 gap-8 pt-2 columns-2 sm:columns-3 lg:columns-5
@@ -18,4 +25,16 @@
 
 .dog-item{
     @apply mb-5 relative drop-shadow-md select-none;
+}
+
+/* .scroll-container{
+    @apply scrollbar-thin scrollbar-track-transparent scrollbar-thumb-teal-200
+} */
+  
+.page-focused{
+    @apply text-lg text-teal-500 font-medium hover:text-teal-400 hover:scale-105
+}
+
+.page-blurred{
+    @apply text-lg hover:text-teal-800 hover:scale-105
 }
