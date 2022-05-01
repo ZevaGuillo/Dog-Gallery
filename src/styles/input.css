@@ -2,3 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base{
+    img{
+        @apply w-full object-cover rounded-xl;
+    }
+}
+
+.container-dogs{
+    @apply w-11/12 gap-8 pt-2 columns-2 sm:columns-3 lg:columns-5
+}
+
+.btn-favourites{
+    @apply bg-slate-900 absolute w-20 h-20 top-2 right-2;
+}
+
+.dog-item{
+    @apply mb-5 relative drop-shadow-md select-none;
+}

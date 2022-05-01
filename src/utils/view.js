@@ -39,7 +39,7 @@ function drawImgRandom(dogList){
 }
 
 function getElementImage(dog, buttonName, callback){
-    let article = document.createElement('article');
+    let div = document.createElement('div');
     let img = document.createElement('img');
     let button = document.createElement('button');
     if(dog.url !== undefined){
@@ -47,15 +47,16 @@ function getElementImage(dog, buttonName, callback){
     }else{
         img.src = dog.image.url;
     }
-    article.classList.add('bg-slate-600');
-    img.classList.add('h-48' ,'w-full' ,'object-cover')
+    button.classList.add('btn-favourites');
+    div.classList.add('dog-item');
+    //img.classList.add('h-48' ,'w-full' ,'object-cover')
     button.innerHTML = buttonName;
     button.addEventListener('click',()=>{
         callback(dog.id)
     });
-    article.appendChild(img);
-    article.appendChild(button);
-    return article
+    div.appendChild(img);
+    div.appendChild(button);
+    return div
 }
 
 export{drawFavourites, drawImgRandom, errorMessage, getFromUpload}

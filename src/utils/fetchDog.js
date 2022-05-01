@@ -1,6 +1,6 @@
 import * as VIEW from "./view.js"
 
-const API_URL_random = 'https://api.thedogapi.com/v1/images/search?limit=10'
+const API_URL_random = 'https://api.thedogapi.com/v1/images/search?limit=30'
 const API_URL_favourites = 'https://api.thedogapi.com/v1/favourites'
 const API_URL_delete = (id) => `https://api.thedogapi.com/v1/favourites/${id}`
 const API_URL_UPLOAD = 'https://api.thedogapi.com/v1/images/upload'
