@@ -4,6 +4,7 @@ const spanError = document.getElementById('error');
 let randomDogSection ; 
 let favouriteDogList ;
 let formUploadElement;
+let divBreeds = document.createElement('div');
 const containerElement = document.getElementById('container');
 const pageAllElement = document.getElementById('page-all');
 const pageFavouritesElement = document.getElementById('page-favourites');
@@ -97,7 +98,7 @@ function createfavouritePage(){
 function createAllPage(){
     const div = document.createElement('div');
     div.classList.add('flex','justify-center');
-    div.innerHTML = getFilterImageElement()
+    div.appendChild(getFilterImageElement())
     
 
     containerElement.appendChild(div);
@@ -115,22 +116,25 @@ function getGalleryRandomElement(){
 }
 
 function getFilterImageElement(){
-    return `
-        <div class="w-11/12 my-3 flex items-center ">
-            <label class="flex items-center gap-4">
-            <span class="text-gray-700 font-semibold">Tipo</span>
-            <select id="select-type-dog"
-                class="bg-transparent block w-28 mt-0 px-1.5 border-0 border-b-2 border-gray-300 text-gray-500  focus:ring-0 focus:border-black">
-                <option value="all">Todo</option>
-                <option value="static">Est&aacute;tico</option>
-                <option value="animated">Animado</option>
-            </select>
-            </label>
-            <div class="h-full px-4 flex items-center flex-nowrap gap-6 overflow-x-scroll scrollbar-none">
-            <span class="item-breeds">GUILLERMO</span>
-            </div>
-        </div>
-    `
+    let div = document.createElement('div');
+    div.classList.add('w-11/12','my-3', 'flex','items-center')
+    div.innerHTML = `
+        <label class="flex items-center gap-4">
+        <span class="text-gray-700 font-semibold">Tipo</span>
+        <select id="select-type-dog"
+            class="bg-transparent block w-28 mt-0 px-1.5 border-0 border-b-2 border-gray-300 text-gray-500  focus:ring-0 focus:border-black">
+            <option value="all">Todo</option>
+            <option value="static">Est&aacute;tico</option>
+            <option value="animated">Animado</option>
+        </select>
+        </label>
+    `;
+   
+    //divBreeds.innerHTML = `<span class="item-breeds">GUILLERMO</span>`;
+
+
+    div.appendChild(divBreeds);
+    return div
 }
 
 function getFromUpload(){
@@ -165,6 +169,19 @@ function drawImgRandom(dogList){
 
 }
 
+function drawBreedsItem(breedList){
+
+    divBreeds.classList.add('containerbreedsItems');
+
+    breedList.forEach(breed =>{
+        let span = document.createElement('span');
+        span.classList.add('item-breeds');
+        span.innerText = breed.name;
+        divBreeds.appendChild(span)
+    })
+
+}
+
 function getElementImage(dog, buttonName, callback){
     let div = document.createElement('div');
     let img = document.createElement('img');
@@ -187,4 +204,4 @@ function getElementImage(dog, buttonName, callback){
 }
 
 createAllPage()
-export{drawFavourites, drawImgRandom, errorMessage, getFromUpload}
+export{drawFavourites, drawImgRandom, errorMessage, getFromUpload, drawBreedsItem}

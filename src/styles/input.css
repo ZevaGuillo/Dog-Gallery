@@ -15,11 +15,12 @@ body{
 }
 
 .item-breeds{
-    @apply inline-block cursor-pointer bg-teal-500 rounded-lg text-emerald-900 transition ease-in-out delay-100 hover:bg-teal-600 hover:scale-105 px-2
+    @apply h-6 w-auto px-2 cursor-pointer text-sky-50 bg-teal-500 rounded-lg transition ease-in-out delay-100 hover:bg-teal-600 hover:scale-105; 
+    white-space: nowrap;
 }
 
 .container-dogs{
-    @apply w-11/12 gap-8 pt-2 columns-2 sm:columns-3 lg:columns-5 
+    @apply w-11/12 gap-8 pt-2 columns-2 sm:columns-3 lg:columns-4
 }
 
 .btn-favourites{
@@ -48,4 +49,8 @@ body{
 
 .uploadingDog{
     @apply flex flex-col items-center
+}
+
+.containerbreedsItems{
+    @apply h-full px-4 flex items-center flex-nowrap gap-6 overflow-x-scroll scrollbar-thin
 }
