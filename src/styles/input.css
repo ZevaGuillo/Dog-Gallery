@@ -14,11 +14,22 @@ body{
     @apply scrollbar-none
 }
 
-.item-breeds{
-    @apply h-6 w-auto px-2 cursor-pointer text-sky-50 bg-teal-500 rounded-lg transition ease-in-out delay-100 hover:bg-teal-600 hover:scale-105; 
+.item-Type{
+    @apply h-6 w-auto px-2 cursor-pointer text-sky-50  rounded-lg transition ease-in-out delay-100 hover:bg-teal-600 hover:scale-105; 
     white-space: nowrap;
 }
 
+.item-All{
+    @apply item-Type bg-rose-400 hover:bg-rose-500 
+}
+
+.item-static{
+    @apply item-Type bg-indigo-400 hover:bg-indigo-500
+}
+
+.item-gif{
+    @apply item-Type bg-fuchsia-400 hover:bg-fuchsia-500
+}
 .container-dogs{
     @apply w-11/12 gap-8 pt-2 columns-2 sm:columns-3 lg:columns-4
 }

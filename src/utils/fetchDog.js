@@ -1,21 +1,18 @@
 import * as VIEW from "./view.js"
 
-const API_URL_random = 'https://api.thedogapi.com/v1/images/search?limit=100'
+const API_URL_random = (type) => `https://api.thedogapi.com/v1/images/search?limit=80&page=1&order=DESC&${type}`
 const API_URL_favourites = 'https://api.thedogapi.com/v1/favourites'
 const API_URL_delete = (id) => `https://api.thedogapi.com/v1/favourites/${id}`
 const API_URL_UPLOAD = 'https://api.thedogapi.com/v1/images/upload'
 const API_URL_BREEDS = 'https://api.thedogapi.com/v1/breeds';
 const spanError = document.getElementById('error');
 
-async function loadBreeds(){
-    let breeds = await getBreedsApi();
-    console.log(breeds);
-    VIEW.drawBreedsItem(breeds)
-}
 
-async function loadImgRandom(){
-    let dogs = await APIDogs(API_URL_random); 
-    loadBreeds();
+async function loadImgRandom(type = ''){
+    if(type !== ''){
+        type = `mime_types=${type}`
+    }
+    let dogs = await APIDogs(API_URL_random(type)); 
     VIEW.drawImgRandom(dogs);
 }
 
@@ -28,23 +25,6 @@ async function loadFavourites(){
     });
 
     VIEW.drawFavourites(fDogs);
-}
-
-async function getBreedsApi(){
-    try {
-        let response = await fetch(API_URL_BREEDS);
-        let  data = await response.json();
-
-        if(response.ok){
-            console.log(data,'raza')
-            return data;
-        }else{
-            VIEW.errorMessage(response.status,data.message);
-        }
-        
-    } catch (error) {
-        VIEW.errorMessage(error,'Carga de Razas');
-    }
 }
 
 async function APIDogs(api_url, param = {}){
@@ -155,5 +135,4 @@ export {
     uploadDogPhoto,
     loadFavourites,
     loadImgRandom,
-    getBreedsApi
     };
