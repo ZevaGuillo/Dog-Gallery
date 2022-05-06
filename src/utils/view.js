@@ -130,7 +130,7 @@ function getGalleryRandomElement(){
 
 function getFilterImageElement(){
     let div = document.createElement('div');
-    div.classList.add('w-11/12','my-3','gap-4', 'flex','items-center','justify-center', 'sm:justify-start' ,'lg:justify-start')
+    div.classList.add('filterContainer')
     let allSpan = document.createElement('span');
     allSpan.classList.add('item-All');
     allSpan.innerHTML = 'Todo';
@@ -186,7 +186,7 @@ function drawFavourites(dogList){
     const docFra = document.createDocumentFragment();
     dogList.forEach(dog =>{
 
-        docFra.appendChild(getElementImage(dog,'<i class="fas fa-minus"></i>',API.deleteFavouriteDog));
+        docFra.appendChild(getElementImage(dog,'<i class="fas fa-times"></i>',API.deleteFavouriteDog));
         
     });
     favouriteDogList.appendChild(docFra);
@@ -197,7 +197,7 @@ function drawImgRandom(dogList){
     const docFra = document.createDocumentFragment();
 
     dogList.forEach(dog =>{
-        docFra.appendChild(getElementImage(dog,'<i class="fas fa-plus"></i>', API.saveFavouritesDogs));
+        docFra.appendChild(getElementImage(dog,'<i class="fas fa-heart"></i>', API.saveFavouritesDogs));
     })
 
     randomDogSection.appendChild(docFra)

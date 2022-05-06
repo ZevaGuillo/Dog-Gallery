@@ -7,7 +7,7 @@
         @apply w-full object-cover rounded-xl;
     }
     h2{
-        @apply w-11/12 my-7 text-teal-900 font-semibold text-3xl text-center md:text-center;
+        @apply w-11/12 my-7 text-teal-500 font-semibold text-3xl text-center md:text-center;
     }
 }
 body{
@@ -15,6 +15,9 @@ body{
 }
 .imgUpload{
     @apply w-1/4;
+}
+.filterContainer{
+    @apply gap-4 w-11/12 my-4 flex items-center justify-center sm:justify-start lg:justify-start
 }
 
 .item-Type{
@@ -38,7 +41,7 @@ body{
 }
 
 .btn-favourites{
-    @apply rounded-full leading-none outline-none opacity-70 text-teal-900 bg-teal-400 text-2xl absolute w-10 h-10 top-2 right-2 transition ease-in-out hover:bg-rose-400 hover:scale-105;
+    @apply  leading-none outline-none text-gray-700 text-3xl absolute w-10 h-10 top-2 right-2 transition ease-in-out hover:text-rose-500 hover:scale-105;
 }
 
 .dog-item{
@@ -51,7 +54,7 @@ body{
 }
 
 .page-blurred{
-    @apply text-base hover:text-teal-700 hover:scale-105
+    @apply text-base hover:text-teal-400 hover:scale-105
 }
 
 .favouritesGallery{
@@ -73,8 +76,8 @@ body{
     @apply flex flex-col justify-center items-center w-11/12 gap-4
 }
 .uploadInput{
-    @apply block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-400 bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
+    @apply block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-gray-400 bg-clip-padding border border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none;
 }
 .btn{
-    @apply cursor-pointer inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md focus:outline-none focus:ring-0 transition duration-150 ease-in-out opacity-60
+    @apply cursor-pointer inline-block px-6 py-2.5 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded-lg shadow-md focus:outline-none focus:ring-0 transition duration-150 ease-in-out opacity-60
 }
