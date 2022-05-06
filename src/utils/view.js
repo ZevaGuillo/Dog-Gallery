@@ -76,7 +76,7 @@ function createuploadPage(){
     button.type = 'button'
     button.classList.add('btn')
     let img = document.createElement('img');
-    img.src = './images/upload.svg';
+    img.src = './src/images/upload.svg';
     img.classList.add('imgUpload');
     formUploadElement.appendChild(img)
     formUploadElement.appendChild(inputFile);
