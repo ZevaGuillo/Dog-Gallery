@@ -1,6 +1,7 @@
 import * as API from './fetchDog.js';
 
-const spanError = document.getElementById('error');
+
+const divError = document.getElementById('error');
 let randomDogSection ; 
 let favouriteDogList ;
 let formUploadElement;
@@ -8,6 +9,12 @@ const containerElement = document.getElementById('container');
 const pageAllElement = document.getElementById('page-all');
 const pageFavouritesElement = document.getElementById('page-favourites');
 const pageUploadElement = document.getElementById('page-upload');
+
+window.addEventListener('click',(e)=>{
+    if(e.target !== divError){
+        divError.classList.add('hidden');
+    }
+})
 
 pageAllElement.addEventListener('click',(e)=>{
     containerElement.innerHTML = '';
@@ -51,27 +58,35 @@ pageUploadElement.addEventListener('click',(e)=>{
 
 function createuploadPage(){
     const div = document.createElement('div');
-    
+    div.classList.add('flex','flex-col', 'items-center','justify-center','w-full')
     let section = document.createElement('section');
-    section.classList.add('uploadingDog');
+    section.classList.add('uploadContainer');
     let h2 = document.createElement('h2');
     h2.innerHTML = "Sube la foto de tu Perrito"
     formUploadElement = document.createElement('form');
     formUploadElement.id = 'uploadingForm';
     let inputFile = document.createElement('input');
+    inputFile.classList.add('uploadInput')
     inputFile.type = 'file';
     inputFile.id = 'file';
     inputFile.name = 'file';
     let button = document.createElement('button');
-    button.innerHTML = 'Subir foto de tu perro';
+    button.innerHTML = 'Subir imagen';
     button.addEventListener('click',API.uploadDogPhoto)
+    button.type = 'button'
+    button.classList.add('btn')
+    let img = document.createElement('img');
+    img.src = './images/upload.svg';
+    img.classList.add('imgUpload');
+    formUploadElement.appendChild(img)
     formUploadElement.appendChild(inputFile);
     formUploadElement.appendChild(button);
+
     section.appendChild(h2);
     section.appendChild(formUploadElement);
 
     div.appendChild(section);
-    containerElement.appendChild(div)
+    containerElement.appendChild(div);
 }
 
 function createfavouritePage(){
@@ -79,7 +94,6 @@ function createfavouritePage(){
     div.classList.add('favouritesGallery');
     let h2 = document.createElement('h2');
     h2.innerText = 'Favoritos';
-    //h2.classList.add('m-5')
     let section = document.createElement('section');
     section.id ='favouritesDogs';
     section.classList.add('flex', 'justify-center');
@@ -152,7 +166,19 @@ function getFromUpload(){
 }
 
 function errorMessage(error, message){
-    spanError.innerHTML = 'vales pipi ' + error +' '+message
+    //divError.innerHTML = 'vales pipi ' + error +' '+message
+    let title = document.getElementById('modalTitle');
+    let description = document.getElementById('modalDesciption');
+    let btnModal = document.getElementById('btnModal');
+
+    title.innerHTML = error;
+    description.innerHTML = message;
+
+    divError.classList.remove('hidden')
+    btnModal.addEventListener('click',()=>{
+        divError.classList.add('hidden');
+    })
+    
 }
 
 function drawFavourites(dogList){
@@ -160,7 +186,7 @@ function drawFavourites(dogList){
     const docFra = document.createDocumentFragment();
     dogList.forEach(dog =>{
 
-        docFra.appendChild(getElementImage(dog,'Quitar de favoritos',API.deleteFavouriteDog));
+        docFra.appendChild(getElementImage(dog,'<i class="fas fa-minus"></i>',API.deleteFavouriteDog));
         
     });
     favouriteDogList.appendChild(docFra);
@@ -171,8 +197,7 @@ function drawImgRandom(dogList){
     const docFra = document.createDocumentFragment();
 
     dogList.forEach(dog =>{
-        console.log(dog,'random')
-        docFra.appendChild(getElementImage(dog,'Favoritos', API.saveFavouritesDogs));
+        docFra.appendChild(getElementImage(dog,'<i class="fas fa-plus"></i>', API.saveFavouritesDogs));
     })
 
     randomDogSection.appendChild(docFra)

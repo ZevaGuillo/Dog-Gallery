@@ -4,7 +4,6 @@ const API_URL_random = (type) => `https://api.thedogapi.com/v1/images/search?lim
 const API_URL_favourites = 'https://api.thedogapi.com/v1/favourites'
 const API_URL_delete = (id) => `https://api.thedogapi.com/v1/favourites/${id}`
 const API_URL_UPLOAD = 'https://api.thedogapi.com/v1/images/upload'
-const API_URL_BREEDS = 'https://api.thedogapi.com/v1/breeds';
 const spanError = document.getElementById('error');
 
 
@@ -34,7 +33,6 @@ async function APIDogs(api_url, param = {}){
         let data = await response.json();
 
         if(response.ok){
-            console.log(data,'cono')
 
             return data;
         }else{
@@ -42,7 +40,7 @@ async function APIDogs(api_url, param = {}){
         }
 
     } catch(err) {
-        VIEW.errorMessage(err,'error api');
+        VIEW.errorMessage(err,'Al cargar la api');
     }
 } 
 
@@ -69,7 +67,7 @@ async function saveFavouritesDogs(id){
         }
 
     } catch(err) {
-        VIEW.errorMessage(err,'gola');
+        VIEW.errorMessage(err,'Error de carga de favoritos');
     }
 }
 
@@ -93,11 +91,12 @@ async function deleteFavouriteDog(id){
         }
 
     } catch(err) {
-        VIEW.errorMessage(err,'PURO');
+        VIEW.errorMessage(err,'Error al remover de favorito');
     }
 }
 
 async function uploadDogPhoto(){
+    
     const formData = VIEW.getFromUpload();
 
     try{
@@ -113,7 +112,6 @@ async function uploadDogPhoto(){
         
         if(response.ok){
             console.log("Upload");
-            console.log({data});
             spanError.innerHTML = 'foto subida';
             saveFavouritesDogs(data.id)
             loadFavourites()
@@ -122,7 +120,7 @@ async function uploadDogPhoto(){
         }
 
     } catch(err) {
-        VIEW.errorMessage(err,'error api');
+        VIEW.errorMessage(err,'Error al subir una imagen');
     }
 
 }
