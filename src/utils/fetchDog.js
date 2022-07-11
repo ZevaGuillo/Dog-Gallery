@@ -1,6 +1,6 @@
 import * as VIEW from "./view.js"
 
-const API_URL_random = (type) => `https://api.thedogapi.com/v1/images/search?limit=80&page=1&order=DESC&${type}`
+const API_URL_random = (type) => `https://api.thedogapi.com/v1/images/search?limit=30&page=1&order=DESC&${type}`
 const API_URL_favourites = 'https://api.thedogapi.com/v1/favourites'
 const API_URL_delete = (id) => `https://api.thedogapi.com/v1/favourites/${id}`
 const API_URL_UPLOAD = 'https://api.thedogapi.com/v1/images/upload'
@@ -27,13 +27,12 @@ async function loadFavourites(){
 }
 
 async function APIDogs(api_url, param = {}){
-    
+
     try{
         let response = await fetch(api_url,param);
         let data = await response.json();
 
         if(response.ok){
-
             return data;
         }else{
             VIEW.errorMessage(response.status,data.message);
